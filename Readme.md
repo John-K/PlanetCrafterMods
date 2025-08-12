@@ -63,7 +63,7 @@ This plugin reads its config from a file named `items.toml` in the same director
 
 Possible values for `crafted_at` are `[Null, CraftStationT1, CraftStationT2, CraftStationT3, CraftRocket, CraftBioLab, CraftGeneticT1, CraftIncubatorT1, CraftDroneT1, CraftOvenT1, CraftVehicleT1, CraftQuartzT1, CraftDeparturePlatform]`
 
-The `name` and `recipe` strings must be a valid object name known to ``StaticDataHandler`
+The `name` and `recipe` strings must be a valid object name known to `StaticDataHandler`
 
 Sample `items.toml`:
 ```
