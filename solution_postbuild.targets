@@ -1,0 +1,11 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<Target Name="CopyDLLs" AfterTargets="Build">
+		<Copy SourceFiles="$(TargetDir)$(AssemblyName).dll" DestinationFolder="$(Destination)" />
+		<Copy SourceFiles="$(SolutionDir)Readme.md" DestinationFolder="$(Destination)" />
+	</Target>
+	<Target Name="MakePackage" AfterTargets="Build">
+		<Copy SourceFiles="$(TargetDir)$(AssemblyName).dll" DestinationFolder="$(TargetDir)\$(AssemblyName)\$(AuthorName) - $(Description)" />
+		<Copy SourceFiles="$(SolutionDir)Readme.md" DestinationFolder="$(TargetDir)\$(AssemblyName)\$(AuthorName) - $(Description)" />
+		<ZipDirectory SourceDirectory="$(TargetDir)\$(AssemblyName)" DestinationFile="$(OutputPath)\..\..\..\..\packaged\$(AuthorName)-$(AssemblyName).zip" Overwrite="true" />
+	</Target>
+</Project>
