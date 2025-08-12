@@ -26,6 +26,9 @@ This repo only supports the very latest Steam or GoG releases.
 ### Cheats
  - [Drone Speed](#cheat-drone-speed)
 
+### Features
+ - [Crafting Enabler](#feature-crafting-enabler)
+
 ## (Cheat) Drone Speed
 
 Sets the drone speed as configured. Default is 21
@@ -44,5 +47,28 @@ Enabled = true
 # Setting type: Single
 # Default value: 21
 DroneSpeed = 21
+```
 
+## (Feature) Crafting Enabler
+
+Allows the player to specify the recipe for objects and in the case of items, where they can be crafted.
+
+Any object that is modified by this plugin will immediately become craftable.
+
+Note: limited testing has been performed, so please report and issues that you discover.
+
+### Configuration
+
+This plugin reads its config from a file named `items.toml` in the same directory as the plugin DLL (typically `JohnHedge - (Feature) Crafting Enabler`). An empty file will be created at runtime if the file does not exist.
+
+Possible values for `crafted_at` are `[Null, CraftStationT1, CraftStationT2, CraftStationT3, CraftRocket, CraftBioLab, CraftGeneticT1, CraftIncubatorT1, CraftDroneT1, CraftOvenT1, CraftVehicleT1, CraftQuartzT1, CraftDeparturePlatform]`
+
+The `name` and `recipe` strings must be a valid object name known to ``StaticDataHandler`
+
+Sample `items.toml`:
+```
+items = [
+    { name = "SeedGold", crafted_at = "CraftStationT2", recipe = ["TreeRoot", "Sulfur"] },
+    { name = "GoldenContainer",  recipe = ["Iron", "Rod-osmium", "Rod-alloy"]}
+ ]
 ```
