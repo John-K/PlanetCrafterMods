@@ -21,5 +21,6 @@
   <Target Name="CopyTomlet" AfterTargets="Build">
 	  <Copy SourceFiles="$(TargetDir)Tomlet.dll" DestinationFolder="$(TargetDir)\$(AssemblyName)\$(AuthorName) - $(Description)" />
 	  <Copy SourceFiles="$(TargetDir)Tomlet.dll" DestinationFolder="$(Destination)" />
+	  <ZipDirectory SourceDirectory="$(TargetDir)\$(AssemblyName)" DestinationFile="$(OutputPath)\..\..\..\..\packaged\$(AuthorName)-$(AssemblyName).zip" Overwrite="true" />
   </Target>
 </Project>
