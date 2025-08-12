@@ -12,6 +12,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CraftingEnabler", "CraftingEnabler\CraftingEnabler.csproj", "{316A4811-078B-41D7-9284-4390FC15238C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MachineOptimizerTweak", "MachineOptimizerTweak\MachineOptimizerTweak.csproj", "{44E6B72F-00D1-45C7-A5C4-FDC1AFE2C25D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,6 +28,10 @@ Global
 		{316A4811-078B-41D7-9284-4390FC15238C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{316A4811-078B-41D7-9284-4390FC15238C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{316A4811-078B-41D7-9284-4390FC15238C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44E6B72F-00D1-45C7-A5C4-FDC1AFE2C25D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44E6B72F-00D1-45C7-A5C4-FDC1AFE2C25D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44E6B72F-00D1-45C7-A5C4-FDC1AFE2C25D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44E6B72F-00D1-45C7-A5C4-FDC1AFE2C25D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

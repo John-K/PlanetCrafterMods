@@ -25,6 +25,7 @@ This repo only supports the very latest Steam or GoG releases.
 
 ### Cheats
  - [Drone Speed](#cheat-drone-speed)
+ - [MachineOptimizer Tweak](#cheat-machineoptimizer-tweak)
 
 ### Features
  - [Crafting Enabler](#feature-crafting-enabler)
@@ -47,6 +48,35 @@ Enabled = true
 # Setting type: Single
 # Default value: 21
 DroneSpeed = 21
+```
+
+## (Cheat) MachineOptimizer Tweak
+
+Allows the player to specify the effective range of MachineOptimizers as well as how many machines they will boost.
+
+A re-implementation of [MachineOptimizerMod](https://www.nexusmods.com/planetcrafter/mods/81) by [Garsia](https://next.nexusmods.com/profile/Garsia0)
+
+Note: Default values are from the T2 Optimizer
+
+### Configuration
+`JohnHedge.MachineOptimizerTweak.cfg`
+```
+[General]
+
+## Is the mod enabled?
+# Setting type: Boolean
+# Default value: true
+Enabled = true
+
+## Maximum number of machines to boost
+# Setting type: Int32
+# Default value: 8
+machine_count = 10
+
+## Boost machines within this range
+# Setting type: Single
+# Default value: 250
+machine_range = 400
 ```
 
 ## (Feature) Crafting Enabler
