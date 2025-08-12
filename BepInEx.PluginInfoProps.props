@@ -13,6 +13,7 @@ namespace $(RootNamespace)
         public const string PLUGIN_GUID = "$(BepInExPluginGuid)"%3B
         public const string PLUGIN_NAME = "$(BepInExPluginName)"%3B
         public const string PLUGIN_VERSION = "$(BepInExPluginVersion)"%3B
+        public const string PLUGIN_AUTHOR = "$(AuthorName)"%3B
     }
 }
       ]]></GeneratedText>
