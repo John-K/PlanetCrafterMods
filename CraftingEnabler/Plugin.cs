@@ -24,19 +24,30 @@ namespace CraftingEnabler
         public List<GroupDataItem> recipe;
         public DataConfig.CraftableIn craftable_at;
     }
+
     class ConfigFileEntry
     {
-        public string name { get; set; }
-        [TomlProperty("crafted_at")]
-        public DataConfig.CraftableIn craftedAt { get; set; }
-        public List<string> recipe;
-        [NonSerialized]
-        public bool created = false;
+        public ConfigFileEntry()
+        {
+            recipe = new List<string>();
+        }
+
         public override string ToString()
         {
             return $"name = {name}, craftedAt: {craftedAt.ToString()}, recipe: [ {string.Join(", ", recipe)} ]";
         }
+
+        public string name { get; set; }
+
+        [TomlProperty("crafted_at")]
+        public DataConfig.CraftableIn craftedAt { get; set; }
+
+        public List<string> recipe;
+
+        [NonSerialized]
+        public bool created = false;
     }
+
     class ConfigFile
     {
         public ConfigFile() {
