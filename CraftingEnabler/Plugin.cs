@@ -29,7 +29,7 @@ namespace CraftingEnabler
     {
         public ConfigFileEntry()
         {
-            recipe = new List<string>();
+            recipe = [];
         }
 
         public override string ToString()
@@ -51,7 +51,7 @@ namespace CraftingEnabler
     class ConfigFile
     {
         public ConfigFile() {
-            items = new List<ConfigFileEntry> { };
+            items = [];
          }
         public List<ConfigFileEntry> items;
     }
@@ -63,7 +63,6 @@ namespace CraftingEnabler
         static bool isEnabled = true;
         static ConfigFile config;
         static ManualLogSource logger;
-        static Plugin me;
 
         private static SpaceCraftGroups GetGroupsForEntry(ConfigFileEntry entry, List<GroupData> groupsData)
         {
@@ -123,7 +122,7 @@ namespace CraftingEnabler
 
         private bool LoadConfigFile()
         {
-            String configFilePath = null;
+            String configFilePath;
 
             logger = Logger;
 
@@ -183,10 +182,9 @@ namespace CraftingEnabler
             return true;
         }
 
-        private void Awake()
+        protected void Awake()
         {
             logger = Logger;
-            me = this;
 
             // Plugin startup logic           
             pluginEnabled = Config.Bind("General", "Enabled", true, "Is the mod enabled?");
@@ -231,7 +229,7 @@ namespace CraftingEnabler
 
             foreach (var entry in config.items)
             {
-                SpaceCraftGroups groups = null;
+                SpaceCraftGroups groups;
                 try
                 {
                     groups = GetGroupsForEntry(entry, ___groupsData);
