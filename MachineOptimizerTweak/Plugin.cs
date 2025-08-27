@@ -45,6 +45,16 @@ namespace MachineOptimizerTweak
                 __instance.range = machine_range.Value;
             }
         }
+        [HarmonyPostfix]
+        [HarmonyPatch(typeof(MachineOptimizer), "WaitBeforeInit")]
+        static void MachineOptimizer_WaitBeforeInit_Post(MachineOptimizer __instance) {
+            if (isEnabled.Value) {
+                logger.LogInfo($"Configuring optimizer at {__instance.transform.position} with range {machine_range.Value} and machine limit {machine_count.Value}");
+                __instance.maxWorldObjectPerFuse = machine_count.Value;
+                __instance.range = machine_range.Value;
+                __instance.ChangeMultiplierDependingOnFuses(false);
+            }
+        }
 
         // Poke all of the MachineOptimizers with the new value after 0.25s if no other updates occur in the meantime
         private static IEnumerator UpdateOptimizers(SettingChangedEventArgs e, int count, float range) {
@@ -53,6 +63,7 @@ namespace MachineOptimizerTweak
             logger.LogInfo($"Got config changed notification: '{e.ChangedSetting.Definition.Key}' changed to '{e.ChangedSetting.BoxedValue}', poking {optimizers.Length} MachineOptimizers");
             // tell all MachineOptimizers to update
             foreach (MachineOptimizer m in optimizers) {
+                logger.LogInfo($"Poking optimizer at {m.transform.position}. Setting range and max from {m.range}, {m.maxWorldObjectPerFuse} to {range}, {count}");
                 m.maxWorldObjectPerFuse = count;
                 m.range = range;
                 m.ChangeMultiplierDependingOnFuses(false);
